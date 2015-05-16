@@ -1,0 +1,111 @@
+void solve(Maze * maze, DequeADT<Point> * dq)
+{
+
+/***********************************************************************************************************************************/
+
+
+	//TODO solve the 'maze', using 'dq', and place the computed path points (starting from 'start point' and ending in 'end point') in the 'path' vector
+
+
+
+/***********************************************************************************************************************************/
+
+	Point store;
+	Point rightneighbour;
+	Point leftneighbour;
+	Point topneighbour;
+	Point bottomneighbour;
+	int rowpoint;
+	int colpoint;
+	
+	dq->push_front(maze->getStartPoint());
+	do
+	{
+		store=dq->front();
+		dq->pop_front();
+		if (store.isEqual(maze->getEndPoint()))
+		{
+			
+	
+			break;
+		}
+		else if (maze->isVisited(store))
+		{
+			
+		}
+		else if (maze->isWall(store))
+		{
+			
+		}
+		else
+		{
+			maze->setVisited(store);
+			colpoint=store.getColumn();
+			rowpoint=store.getRow();
+			rightneighbour.setRow(rowpoint);
+			rightneighbour.setColumn(colpoint+1);
+			leftneighbour.setRow(rowpoint);
+			leftneighbour.setColumn(colpoint-1);
+			topneighbour.setRow(rowpoint-1);
+			topneighbour.setColumn(colpoint);
+			bottomneighbour.setRow(rowpoint+1);
+			bottomneighbour.setColumn(colpoint);
+			
+			if ((maze->isInBounds(topneighbour)))
+			{
+				if (topneighbour.distanceFrom(maze->getEndPoint())>store.distanceFrom(maze->getEndPoint()))
+				{
+					dq->push_back(topneighbour);
+					
+				}
+				else
+				{
+					dq->push_front(topneighbour);
+				}
+			}
+			
+			if ((maze->isInBounds(bottomneighbour)))
+			{
+				if (bottomneighbour.distanceFrom(maze->getEndPoint())>store.distanceFrom(maze->getEndPoint()))
+				{
+					dq->push_back(bottomneighbour);
+					
+				}
+				else
+				{
+					dq->push_front(bottomneighbour);
+				}
+			}
+			
+			if ((maze->isInBounds(leftneighbour)))
+			{
+				if (leftneighbour.distanceFrom(maze->getEndPoint())>store.distanceFrom(maze->getEndPoint()))
+				{
+					dq->push_back(leftneighbour);
+					
+				}
+				else
+				{
+					dq->push_front(leftneighbour);
+				}
+			}
+			
+			if ((maze->isInBounds(rightneighbour)))
+			{
+				if (rightneighbour.distanceFrom(maze->getEndPoint())>store.distanceFrom(maze->getEndPoint()))
+				{
+					dq->push_back(rightneighbour);
+					
+				}
+				else
+				{
+					dq->push_front(rightneighbour);
+				}
+			}
+		}
+	}
+	while(!dq->empty());
+	
+	
+
+}

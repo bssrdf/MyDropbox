@@ -1,0 +1,28 @@
+all: 
+	cd src/server/Server && make
+# Move the executable to serverexec (a directory right next to src).
+	mkdir serverexec/ADMIN
+	mkdir serverexec/MBD
+	mv src/server/Server/server /serverexec/server
+
+	cd src/client/Client && make
+# Move the executable two steps back.
+	mkdir clientexec
+	mv src/client/Client/Client /clientexec/Client
+
+
+clean:
+# Move the executable forward
+	cd src/server/Server && make clean
+	rm serverexec
+# remove sereverexec and cliexec
+	cd src/client/Client && make clean
+	rm clientexec
+
+server:
+	cd serverexec && ./server
+
+client:
+	cd cliexec && ./Client $(x)
+
+

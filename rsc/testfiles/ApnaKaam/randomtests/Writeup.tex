@@ -1,0 +1,44 @@
+\documentclass[a4paper, 10pt]{article}
+\usepackage{comment} % enables the use of multi-line comments (\ifx \fi) 
+\usepackage{lipsum} %This package just generates Lorem Ipsum filler text. 
+\usepackage{fullpage} % changes the margin
+
+\begin{document}
+%Header-Make sure you update this information!!!!
+\noindent
+\large\textbf{AI Assignment 2} \hfill \textbf{Kabir Chhabra Shikhar Murty} \\
+\large CSL  333 \hfill \textbf{ 2013CS50287 2013EE10462} 
+
+
+
+\section{Approach}
+The problem was solved by breaking it into 4 main Boolean expressions.
+
+
+\subsection{Every Edge belongs to a subgraph}
+This boolean expression states that if e[i][j] exists then there exists a subgraph k, such that both i and j belong to k.
+
+\subsection{No subgraph is a subset of another subgraph}
+This boolean expression states that for all subgraphs k and l (k!=l), there exists an element in k that doesn't exist in l.
+% to comment sections out, use the command \ifx and \fi. Use this technique when writing your pre lab. For example, to comment something out I would do:
+%  \ifx
+%	\begin{itemize}
+%		\item item1
+%		\item item2
+%	\end{itemize}	
+%  \fi
+
+\subsection{All subgraphs are totally connected}
+This boolean expression states that if there doesnt exist an edge between nodes i and j, then there is no subgraph such that both i and j are present in it.
+
+
+\subsection{No subgraph is empty}
+This boolean expression states that there is no subgraph such that no node belongs to it.\\\\
+The clause that every node belongs to a subgraph is already covered in these cases.
+
+\section{Acknowledgement}
+We would like to acknowledge Akshay Gupta, Shreyas Padhy and Haroun Habeeb for their help.
+
+
+
+\end{document}

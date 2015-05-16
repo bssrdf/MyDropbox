@@ -1,0 +1,16 @@
+The problem was solved by breaking it into 4 main Boolean expressions.
+
+1.Every Edge belongs to a subgraph
+This boolean expression states that if e[i][j] exists then there exists a subgraph k, such that both i and j belong to k.
+
+2.No subgraph is a subset of another subgraph
+This boolean expression states that for all subgraphs k and l (k!=l), there exists an element in k that doesn't exist in l.
+
+3.All subgraphs are totally connected
+This boolean expression states that if there doesnt exist an edge between nodes i and j, then there is no subgraph such that both i and j are present in it.
+
+4.No subgraph is empty
+This boolean expression states that there is no subgraph such that no node belongs to it.
+
+The clause that every node belongs to a subgraph is already covered in these cases. 
+
